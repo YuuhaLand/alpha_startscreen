@@ -1,0 +1,796 @@
+{
+  "namespace": "start",
+
+  "title": {
+    "type": "image",
+    "texture": "textures/ui/gui/title",
+    "size": [ 128, 32 ]
+  },
+
+  "mojangles_label": {
+    "type": "label",
+    "font_type": "#font_type",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "font_property_panel",
+        "source_property_name": "#font_type",
+        "target_property_name": "#font_type"
+      }
+    ]
+  },
+
+  "main_button_texture": {
+    "type": "panel",
+    "size": [ 75, 75 ],
+    "$image_size|default": [ 75, 75 ],
+    "$text_color|default": [ 0.871, 0.875, 0.871 ],
+    "$button_status|default": "default",
+    "$button_texture|default": "start",
+    "$button_text|default": "Start Game",
+    "$text_visible|default": true,
+    "controls": [
+      {
+        "image": {
+          "type": "image",
+          "texture": "('textures/ui/gui/' + $button_texture + '_' + $button_status)",
+          "size": "$image_size"
+        }
+      },
+      {
+        "button_text@start.mojangles_label": {
+          "type": "label",
+          "color": "$text_color",
+          "size": ["100%", 10 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "offset": [ 0, 10 ],
+          "text": "$button_text",
+          "text_alignment": "center",
+          "shadow": true,
+          "layer": 1,
+          "ignored": "(not $text_visible)"
+        }
+      }
+    ]
+  },
+
+  "main_button_texture_hover@start.main_button_texture": {
+    "$button_status": "hover",
+    "$image_size": [ 71, 71 ],
+    "$text_color": [ 1.000, 1.000, 0.612 ]
+  },
+
+  "close_button_texture@start.main_button_texture": {
+    "size": [ 34, 26 ],
+    "$button_texture": "close",
+    "$button_status": "default",
+    "$image_size": [ 34, 26 ],
+    "$text_visible": false
+  },
+
+  "close_button_texture_hover@start.close_button_texture": {
+    "$button_status": "hover"
+  },
+
+  "option_main_button_texture": {
+    "type": "image",
+    "texture": "('textures/ui/gui/button_' + $button_status)",
+    "size": [ "100%", 26 ],
+    "$text_color|default": [ 0.871, 0.875, 0.871 ],
+    "$button_status|default": "default",
+    "$button_text|default": "",
+    "controls": [
+      {
+        "button_text@start.mojangles_label": {
+          "type": "label",
+          "color": "$text_color",
+          "size": ["100%", 10 ],
+          "text": "$button_text",
+          "text_alignment": "center",
+          "shadow": true,
+          "layer": 1,
+          "bindings": [
+            {
+              "binding_type": "global",
+              "binding_name": "$button_text"
+            },
+            {
+              "binding_type": "view",
+              "source_control_name": "font_property_panel",
+              "source_property_name": "#font_type",
+              "target_property_name": "#font_type"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "option_main_button_texture_hover@start.option_main_button_texture": {
+    "$button_status": "hover",
+    "$text_color": [ 1.000, 1.000, 0.612 ]
+  },
+
+  "the_icon_button_texture@start.main_button_texture": {
+    "size": [ 26, 26 ],
+    "$button_status": "default",
+    "$image_size": [ 26, 26 ],
+    "$text_visible": false
+  },
+
+  "the_icon_button_texture_hover@start.the_icon_button_texture": {
+    "$button_status": "hover"
+  },
+
+  "alpha_main_button@common.button": {
+    "size": [ 75, 75 ],
+    "controls": [
+      {
+        "default@start.main_button_texture": {}
+      },
+      {
+        "hover@start.main_button_texture_hover": {}
+      },
+      {
+        "pressed@start.main_button_texture_hover": {}
+      }
+    ]
+  },
+
+  "option_main_button@common.button": {
+    "size": [ "100%", 26 ],
+    "controls": [
+      {
+        "default@start.option_main_button_texture": {}
+      },
+      {
+        "hover@start.option_main_button_texture_hover": {}
+      },
+      {
+        "pressed@start.option_main_button_texture_hover": {}
+      }
+    ]
+  },
+
+  "the_icon_button@common.button": {
+    "size": [ 26, 26 ],
+    "controls": [
+      {
+        "default@start.the_icon_button_texture": {}
+      },
+      {
+        "hover@start.the_icon_button_texture_hover": {}
+      },
+      {
+        "pressed@start.the_icon_button_texture_hover": {}
+      }
+    ]
+  },
+
+  "alpha_main_button_toggle@common.toggle": {
+    "size": [ 75, 75 ],
+    "$radio_toggle_group": true,
+    "$unchecked_control": "start.main_button_texture",
+    "$checked_control": "start.main_button_texture",
+    "$unchecked_hover_control": "start.main_button_texture_hover",
+    "$checked_hover_control": "start.main_button_texture_hover",
+    "$unchecked_locked_control": "start.main_button_texture",
+    "$checked_locked_control": "start.main_button_texture",
+    "$unchecked_locked_hover_control": "start.main_button_texture_hover",
+    "$checked_locked_hover_control": "start.main_button_texture_hover"
+  },
+
+  "the_icon_toggle@common.toggle": {
+    "size": [ 26, 26 ],
+    "$radio_toggle_group": true,
+    "$unchecked_control": "start.the_icon_button_texture",
+    "$checked_control": "start.the_icon_button_texture",
+    "$unchecked_hover_control": "start.the_icon_button_texture_hover",
+    "$checked_hover_control": "start.the_icon_button_texture_hover",
+    "$unchecked_locked_control": "start.the_icon_button_texture",
+    "$checked_locked_control": "start.the_icon_button_texture",
+    "$unchecked_locked_hover_control": "start.the_icon_button_texture_hover",
+    "$checked_locked_hover_control": "start.the_icon_button_texture_hover"
+  },
+
+  "option_main_toggle@common.toggle": {
+    "size": [ "100%", 26 ],
+    "$radio_toggle_group": true,
+    "$unchecked_control": "start.option_main_button_texture",
+    "$checked_control": "start.option_main_button_texture",
+    "$unchecked_hover_control": "start.option_main_button_texture_hover",
+    "$checked_hover_control": "start.option_main_button_texture_hover",
+    "$unchecked_locked_control": "start.option_main_button_texture",
+    "$checked_locked_control": "start.option_main_button_texture",
+    "$unchecked_locked_hover_control": "start.option_main_button_texture_hover",
+    "$checked_locked_hover_control": "start.option_main_button_texture_hover"
+  },
+
+  "close_button_toggle@common.toggle": {
+    "size": [ 34, 26 ],
+    "$radio_toggle_group": true,
+    "$unchecked_control": "start.close_button_texture",
+    "$checked_control": "start.close_button_texture",
+    "$unchecked_hover_control": "start.close_button_texture_hover",
+    "$checked_hover_control": "start.close_button_texture_hover",
+    "$unchecked_locked_control": "start.close_button_texture",
+    "$checked_locked_control": "start.close_button_texture",
+    "$unchecked_locked_hover_control": "start.close_button_texture_hover",
+    "$checked_locked_hover_control": "start.close_button_texture_hover",
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_cancel",
+        "to_button_id": "button.menu_select",
+        "mapping_type": "global"
+      },
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.menu_select",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.menu_ok",
+        "mapping_type": "focused"
+      }
+    ]
+  },
+
+
+  "options_panel": {
+    "type": "panel",
+    "size": [ "100% - 20px", "100% - 80px" ],
+    "controls": [
+      {
+        "close_button@start.close_button_toggle": {
+          "anchor_from": "top_right",
+          "anchor_to": "top_right",
+
+          "focus_enabled": false,
+          "$toggle_name": "options_toggle",
+          "$toggle_group_forced_index": 0
+        }
+      },
+      {
+        "option_stack_panel": {
+          "type": "stack_panel",
+          "size": [ "100% - 180px", "100%c" ],
+          "offset": [ 0, 10 ],
+          "controls": [
+            {
+              "settings_button@start.option_main_button": {
+                "$button_text": "menu.settings",
+                "$pressed_button_name": "button.menu_settings",
+
+                "$focus_id": "settings_button",
+                "$focus_override_up": "FOCUS_OVERRIDE_STOP",
+                "$focus_override_down": "store_button",
+                "$focus_override_left": "FOCUS_OVERRIDE_STOP",
+                "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+              }
+            },
+            {
+              "padding_01": {
+                "type": "panel",
+                "size": [ 0, 3 ]
+              }
+            },
+            {
+              "buttons_01": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "size": [ "100%", 26 ],
+                "controls": [
+                  {
+                    "store_button@start.option_main_button": {
+                      "size": [ "fill", 26 ],
+                      "$button_text": "menu.store",
+                      "$pressed_button_name": "button.menu_store",
+
+                      "$focus_id": "store_button",
+                      "$focus_override_up": "settings_button",
+                      "$focus_override_down": "achievement_button",
+                      "$focus_override_left": "FOCUS_OVERRIDE_STOP",
+                      "$focus_override_right": "profile_button"
+                    }
+                  },
+                  {
+                    "padding": {
+                      "type": "panel",
+                      "size": [ 3, 0 ]
+                    }
+                  },
+                  {
+                    "profile_button@start.option_main_button": {
+                      "size": [ "fill", 26 ],
+                      "$button_text": "profileScreen.header",
+                      "$pressed_button_name": "button.menu_skins",
+
+                      "$focus_id": "profile_button",
+                      "$focus_override_up": "settings_button",
+                      "$focus_override_down": "inbox_button",
+                      "$focus_override_left": "store_button",
+                      "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "padding_02": {
+                "type": "panel",
+                "size": [ 0, 3 ]
+              }
+            },
+            {
+              "buttons_02": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "size": [ "100%", 26 ],
+                "controls": [
+                  {
+                    "achievement_button@start.option_main_button": {
+                      "size": [ "fill", 26 ],
+                      "$button_text": "menu.achievements",
+                      "$pressed_button_name": "button.menu_achievements",
+
+                      "$focus_id": "achievement_button",
+                      "$focus_override_up": "store_button",
+                      "$focus_override_left": "FOCUS_OVERRIDE_STOP",
+                      "$focus_override_right": "inbox_button"
+                    }
+                  },
+                  {
+                    "padding": {
+                      "type": "panel",
+                      "size": [ 3, 0 ]
+                    }
+                  },
+                  {
+                    "inbox_button@start.option_main_button": {
+                      "size": [ "fill", 26 ],
+                      "$button_text": "menu.inbox",
+                      "$pressed_button_name": "button.menu_inbox",
+
+                      "$focus_id": "inbox_button",
+                      "$focus_override_up": "profile_button",
+                      "$focus_override_left": "achievement_button",
+                      "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "main_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "options_toggle",
+        "source_property_name": "(not #toggle_state)",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "main_buttons_panel": {
+          "type": "panel",
+          "size": [ "100%", 75 ],
+          "offset": [ 0, -5 ],
+          "controls": [
+            {
+              "join_game_button@start.alpha_main_button": {
+                "offset": [ "10%", 0 ],
+                "anchor_from": "left_middle",
+                "anchor_to": "left_middle",
+      
+                "$focus_override_down": "gathering_button",
+                "$focus_override_up": "FOCUS_OVERRIDE_STOP",
+                "$button_text": "Join Game",
+                "$button_texture": "join",
+                "$pressed_button_name": "$play_button_target"
+              }
+            },
+            {
+              "start_button@start.alpha_main_button": {
+                "anchor_from": "center",
+                "anchor_to": "center",
+      
+                "$focus_override_down": "gathering_button",
+                "$focus_override_up": "FOCUS_OVERRIDE_STOP",
+                "$button_text": "Start Game",
+                "$button_texture": "start",
+                "$pressed_button_name": "$play_button_target"
+              }
+            },
+            {
+              "options_toggle@start.alpha_main_button_toggle": {
+                "offset": [ "-10%", 0 ],
+                "anchor_from": "right_middle",
+                "anchor_to": "right_middle",
+      
+                "$focus_override_down": "gathering_button",
+                "$focus_override_up": "FOCUS_OVERRIDE_STOP",
+                "$button_text": "Options",
+                "$button_texture": "settings",
+                "$toggle_name": "options_toggle",
+                "$toggle_group_forced_index": 1
+              }
+            }
+          ]
+        }
+      },
+      {
+        "gathering_panel": {
+          "type": "stack_panel",
+          "orientation": "horizontal",
+          "size": [ "100% - 8px", 26 ],
+          "offset": [ 0, -4 ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "bindings": [
+            {
+              "binding_name": "#gathering_enabled",
+              "binding_name_override": "#visible"
+            }
+          ],
+          "controls": [
+            {
+              "gathering_button@start.option_main_button": {
+                "size": [ 100, 26 ],
+                "$button_text": "#gathering_button_text",
+                "$pressed_button_name": "button.gathering",
+
+                "$focus_id": "gathering_button",
+                "$focus_override_down": "FOCUS_OVERRIDE_STOP",
+                "$focus_override_left": "FOCUS_OVERRIDE_STOP",
+                "$focus_override_right": "FOCUS_OVERRIDE_STOP"
+              }
+            },
+            {
+              "padding": {
+                "type": "panel",
+                "size": [ 3, 0 ]
+              }
+            },
+            {
+              "countdown_panel": {
+                "type": "panel",
+                "size": [ "fill", 26 ],
+                "controls": [
+                  {
+                    "countdown": {
+                      "type": "image",
+                      "texture": "textures/ui/gui/banner",
+                      "size": [ "100%c + 16px", 24 ],
+                      "anchor_from": "top_left",
+                      "anchor_to": "top_left",
+                      "controls": [
+                        {
+                          "caption_text@start.mojangles_label": {
+                            "type": "label",
+                            "color": [ 0.808, 0.792, 0.808 ],
+                            "size": [ "default", 10 ],
+                            "text": "#gathering_countdown_text",
+                            "shadow": true,
+                            "layer": 1,
+                            "bindings": [
+                              {
+                                "binding_name": "#gathering_countdown_text"
+                              },
+                              {
+                                "binding_type": "view",
+                                "source_control_name": "font_property_panel",
+                                "source_property_name": "#font_type",
+                                "target_property_name": "#font_type"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "options_panels": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "options_toggle",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "options": {
+          "type": "panel",
+          "size": [ "100%", "100%" ],
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "info_toggle",
+              "source_property_name": "(not #toggle_state)",
+              "target_property_name": "#visible"
+            }
+          ],
+          "controls": [
+            {
+              "options_panel@start.options_panel": {}
+            },
+            {
+              "the_icon_buttons": {
+                "type": "stack_panel",
+                "orientation": "horizontal",
+                "size": [ "100% - 24px", 26 ],
+                "offset": [ 0, -12 ],
+                "anchor_from": "bottom_middle",
+                "anchor_to": "bottom_middle",
+                "$button_texture": "close",
+                "controls": [
+                  {
+                    "feedback_button@start.the_icon_button": {
+                      "$focus_override_down": "FOCUS_OVERRIDE_STOP",
+                      "$focus_override_left": "FOCUS_OVERRIDE_STOP",
+                      "$button_texture": "feedback_button",
+                      "$pressed_button_name": "button.feedback_button_pressed"
+                    }
+                  },
+                  {
+                    "padding": {
+                      "type": "panel",
+                      "size": [ 8, 0 ]
+                    }
+                  },
+                  {
+                    "info_toggle@start.the_icon_toggle": {
+                      "$focus_override_down": "FOCUS_OVERRIDE_STOP",
+                      "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+                      "$button_texture": "info_button",
+                      "$toggle_name": "info_toggle",
+                      "$toggle_group_forced_index": 1
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "info": {
+          "type": "panel",
+          "size": [ "100%", "100%" ],
+          "bindings": [
+            {
+              "binding_type": "view",
+              "source_control_name": "info_toggle",
+              "source_property_name": "#toggle_state",
+              "target_property_name": "#visible"
+            }
+          ],
+          "controls": [
+            {
+              "pack_info_panel": {
+                "type": "stack_panel",
+                "size": [ "100% - 180px", 75 ],
+                "offset": [ 0, -15 ],
+                "controls": [
+                  {
+                    "pack_name@start.mojangles_label": {
+                      "type": "label",
+                      "size": [ "100%", 10 ],
+                      "color": [ 1, 1, 0 ],
+                      "text": "MCPE Alpha StartScreen",
+                      "text_alignment": "center",
+                      "shadow": true
+                    }
+                  },
+                  {
+                    "padding": {
+                      "type": "panel",
+                      "size": [ 0, 10 ]
+                    }
+                  },
+                  {
+                    "pack_desc@start.mojangles_label": {
+                      "type": "label",
+                      "size": [ "100%", "default" ],
+                      "color": [ 1, 1, 1 ],
+                      "text": "アルファ時代のスタート画面を再現しました。\n\nバージョン: v1.0.0\nつくったひと: YuuhaLand\n\nX: §bx.com/Gotemba912§r\nバグ報告: §adiscord.gg/skX9YHp4fC",
+                      "shadow": true
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "ok_toggle@start.option_main_toggle": {
+                "size": [ 130, 26 ],
+                "offset": [ 0, -16 ],
+                "anchor_from": "bottom_middle",
+                "anchor_to": "bottom_middle",
+
+                "$button_text": "gui.ok",
+                "$toggle_name": "info_toggle",
+                "$toggle_group_forced_index": 0,
+                "button_mappings": [
+                  {
+                    "from_button_id": "button.menu_cancel",
+                    "to_button_id": "button.menu_select",
+                    "mapping_type": "global"
+                  },
+                  {
+                    "from_button_id": "button.menu_select",
+                    "to_button_id": "button.menu_select",
+                    "mapping_type": "pressed"
+                  },
+                  {
+                    "from_button_id": "button.menu_ok",
+                    "to_button_id": "button.menu_ok",
+                    "mapping_type": "focused"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "alpha_start_screen_content": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "controls": [
+      {
+        "title@start.title": {
+          "offset": [ 0, 4 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle"
+        }
+      },
+      {
+        "main_panel@start.main_panel": {}
+      },
+      {
+        "options_panels@start.options_panels": {}
+      },
+      {
+        "version@start.mojangles_label": {
+          "type": "label",
+          "size": [ "100%", 10 ],
+          "offset": [ 0, 37 ],
+          "color": [ 0.808, 0.792, 0.808 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "text": "#text",
+          "text_alignment": "center",
+          "shadow": true,
+          "bindings": [
+            {
+              "binding_name": "#version"
+            },
+            {
+              "ignored":  "$pre_release",
+              "binding_type": "view",
+              "source_property_name": "#version",
+              "target_property_name": "#text"
+            },
+            {
+              "ignored":  "(not $pre_release)",
+              "binding_type": "view",
+              "source_property_name": "(#version + ' (Preview)')",
+              "target_property_name": "#text"
+            },
+            {
+              "binding_type": "view",
+              "source_control_name": "font_property_panel",
+              "source_property_name": "#font_type",
+              "target_property_name": "#font_type"
+            }
+          ]
+        }
+      },
+      {
+        "copyright@start.mojangles_label": {
+          "type": "label",
+          "size": [ "default", 10 ],
+          "offset": [ -3, -1 ],
+          "color": [ 1, 1, 1 ],
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "text": "menu.copyright",
+          "shadow": true
+        }
+      },
+      {
+        "font_property_panel": {
+          "type": "panel",
+          "size": [ 0, 0 ],
+          "property_bag": {
+            "#font_type": "classic"
+          }
+        }
+      },
+      {
+        "image_load": {
+          "type": "panel",
+          "size": [ 0, 0 ],
+          "alpha": 0,
+          "controls": [
+            {
+              "button_hover": {
+                "type": "image",
+                "texture": "textures/ui/gui/button_hover"
+              }
+            },
+            {
+              "close_hover": {
+                "type": "image",
+                "texture": "textures/ui/gui/close_hover"
+              }
+            },
+            {
+              "feedback_button_hover": {
+                "type": "image",
+                "texture": "textures/ui/gui/feedback_button_hover"
+              }
+            },
+            {
+              "info_button_hover": {
+                "type": "image",
+                "texture": "textures/ui/gui/info_button_hover"
+              }
+            },
+            {
+              "join_hover": {
+                "type": "image",
+                "texture": "textures/ui/gui/join_hover"
+              }
+            },
+            {
+              "settings_hover": {
+                "type": "image",
+                "texture": "textures/ui/gui/settings_hover"
+              }
+            },
+            {
+              "start_hover": {
+                "type": "image",
+                "texture": "textures/ui/gui/start_hover"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  
+  "start_screen": {
+    "$screen_content": "start.alpha_start_screen_content",
+    "$screen_bg_content": "start.dirt_background"
+  },
+
+  "dirt_background@common.dirt_background": {
+    "size": [ "200%","200%" ],
+    "texture": "textures/ui/gui/bg32"
+  }
+}
